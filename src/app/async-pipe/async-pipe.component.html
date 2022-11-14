@@ -1,0 +1,12 @@
+<h2>| async</h2>
+<!-- ↓ これはエラーになる -->
+<!-- {{ user$.name }} -->
+
+<!-- | asyncを使ったので、TypeScript側でsubscribe,unsubscribeが不要 -->
+<!-- ※　| asyncを使うと初期値がnullになるので、*ngIfを併用する -->
+<ng-container *ngIf="user$ | async as user">
+  <!-- user$が値を受け取ってからDOMを描画 -->
+  <p>{{ user.name }}</p>
+  <p>{{ user.age }}</p>
+  <p>{{ user.job }}</p>
+</ng-container>
